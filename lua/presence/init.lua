@@ -110,7 +110,7 @@ function Presence:setup(options)
     self:set_option("client_id", "1008582594566303834")
     self:set_option("debounce_timeout", 10)
     self:set_option("main_image", "neovim")
-    self:set_option("neovim_image_text", "Usuim 1.6.10")
+    self:set_option("neovim_image_text", "Usuim 1.6.11")
     self:set_option("enable_line_number", false)
     -- Status text options
     self:set_option("editing_text", "Editing %s")
