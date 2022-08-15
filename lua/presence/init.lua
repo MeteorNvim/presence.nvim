@@ -67,6 +67,7 @@ local file_explorers = require("presence.file_explorers")
 local default_file_assets = require("presence.file_assets")
 local plugin_managers = require("presence.plugin_managers")
 local Discord = require("presence.discord")
+local TimeStamp = os.time(os.date("!*t"))
 
 function Presence:setup(options)
     options = options or {}
@@ -821,7 +822,7 @@ function Presence:update_for_buffer(buffer, should_debounce)
         state = status_text,
         assets = assets,
         timestamps = {
-            start = relative_activity_set_at,
+            start = TimeStamp,
         },
     }
 
@@ -871,7 +872,7 @@ function Presence:update_for_buffer(buffer, should_debounce)
             if self.workspaces[project_path] then
                 self.workspaces[project_path].updated_at = activity_set_at
                 activity.timestamps = {
-                    start = self.workspaces[project_path].started_at,
+                    start = TimeStamp,
                 }
             else
                 self.workspaces[project_path] = {
