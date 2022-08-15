@@ -79,7 +79,7 @@ return {
     ["Gemfile"] = { "Gemfile", "ruby" },
     ["Gemfile.lock"] = { "Gemfile lockfile", "ruby" },
     ["LICENSE"] = { "LICENSE", "text" },
-    ["Makefile"] = { "Makefile", "code" },
+    ["Makefile"] = { "Makefile", "makefile" },
     ["Rakefile"] = { "Rakefile", "ruby" },
     ["abookrc"] = { "abook", "abook" },
     ["alacritty.yaml"] = { "Alacritty config", "alacritty" },
