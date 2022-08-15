@@ -75,6 +75,7 @@ return {
     ["CONTRIBUTING"] = { "CONTRIBUTING", "text" },
     ["Cargo.lock"] = { "Cargo lockfile", "cargo" },
     ["Cargo.toml"] = { "Cargo.toml", "cargo" },
+    ["CMakeLists.txt"] = { "CMakeLists.txt", "cmake" },
     ["Dockerfile"] = { "Docker", "docker" },
     ["Gemfile"] = { "Gemfile", "ruby" },
     ["Gemfile.lock"] = { "Gemfile lockfile", "ruby" },
