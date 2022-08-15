@@ -67,7 +67,7 @@ local file_explorers = require("presence.file_explorers")
 local default_file_assets = require("presence.file_assets")
 local plugin_managers = require("presence.plugin_managers")
 local Discord = require("presence.discord")
-local TimeStamp = os.time(os.date("!*t"))
+local TimeStamp = os.time()
 
 function Presence:setup(options)
     options = options or {}
