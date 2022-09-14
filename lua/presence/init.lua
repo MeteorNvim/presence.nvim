@@ -889,7 +889,7 @@ function Presence:update_for_buffer(buffer, should_debounce)
                 file = buffer,
                 set_at = activity_set_at,
                 relative_set_at = relative_activity_set_at,
-                workspace = nil,
+                workspace = project_path,
             }
 
             -- When no project is detected, set custom workspace text if:
@@ -900,10 +900,10 @@ function Presence:update_for_buffer(buffer, should_debounce)
             if type(workspace_text) == "function" then
                 local custom_workspace_text = workspace_text(nil, buffer)
                 if custom_workspace_text then
-                    activity.details = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+                    activity.details = nil
                 end
             elseif not workspace_text:find("%s") then
-                activity.details = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+                activity.details = nil
             end
         end
     end
