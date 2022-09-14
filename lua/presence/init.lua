@@ -900,10 +900,10 @@ function Presence:update_for_buffer(buffer, should_debounce)
             if type(workspace_text) == "function" then
                 local custom_workspace_text = workspace_text(nil, buffer)
                 if custom_workspace_text then
-                    activity.details = custom_workspace_text
+                    activity.details = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
                 end
             elseif not workspace_text:find("%s") then
-                activity.details = workspace_text
+                activity.details = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
             end
         end
     end
