@@ -889,7 +889,7 @@ function Presence:update_for_buffer(buffer, should_debounce)
                 file = buffer,
                 set_at = activity_set_at,
                 relative_set_at = relative_activity_set_at,
-                workspace = project_path,
+                workspace = nil,
             }
 
             -- When no project is detected, set custom workspace text if:
