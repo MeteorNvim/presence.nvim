@@ -898,7 +898,7 @@ function Presence:update_for_buffer(buffer, should_debounce)
             -- (can't use the `format_status_text` method here)
             local workspace_text = self.options.workspace_text
             if type(workspace_text) == "function" then
-                local custom_workspace_text = workspace_text(nil, buffer)
+                local custom_workspace_text = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
                 if custom_workspace_text then
                     activity.details = nil
                 end
