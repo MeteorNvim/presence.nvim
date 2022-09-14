@@ -122,6 +122,7 @@ function Presence:setup(options)
     self:set_option("line_number_text", "Line %s out of %s")
     self:set_option("blacklist", {})
     self:set_option("buttons", true)
+    self:set_option("show_time", true)
     -- File assets options
     self:set_option("file_assets", {})
     for name, asset in pairs(default_file_assets) do
@@ -821,9 +822,9 @@ function Presence:update_for_buffer(buffer, should_debounce)
     local activity = {
         state = status_text,
         assets = assets,
-        timestamps = {
+        timestamps = self.options.show_time == 1 and {
             start = TimeStamp,
-        },
+        } or nil,
     }
 
     -- Add button that links to the git workspace remote origin url
@@ -871,9 +872,9 @@ function Presence:update_for_buffer(buffer, should_debounce)
 
             if self.workspaces[project_path] then
                 self.workspaces[project_path].updated_at = activity_set_at
-                activity.timestamps = {
+                activity.timestamps = self.options.show_time == 1 and {
                     start = TimeStamp,
-                }
+                } or nil
             else
                 self.workspaces[project_path] = {
                     started_at = activity_set_at,
@@ -900,10 +901,10 @@ function Presence:update_for_buffer(buffer, should_debounce)
             if type(workspace_text) == "function" then
                 local custom_workspace_text = workspace_text(nil, buffer)
                 if custom_workspace_text then
-                    activity.details = nil
+                    activity.details = custom_workspace_text
                 end
             elseif not workspace_text:find("%s") then
-                activity.details = nil
+                activity.details = workspace_text
             end
         end
     end
