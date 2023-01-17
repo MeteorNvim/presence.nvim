@@ -223,6 +223,7 @@ return {
     psm1 = { "PowerShell", "powershell" },
     purs = { "PureScript", "purescript" },
     py = { "Python", "python" },
+    qml = { "Qml", "qml" },
     r = { "R", "r" },
     raku = { "Raku", "raku" },
     rakudoc = { "Raku", "raku" },
