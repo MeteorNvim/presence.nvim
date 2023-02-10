@@ -102,6 +102,7 @@ return {
     ["jest.setup.js"] = { "Jest config", "jest" },
     ["jest.setup.ts"] = { "Jest config", "jest" },
     ["kitty.conf"] = { "Kitty config", "kitty" },
+    ["meson.build"] = { "Meson Build System", "meson" },
     ["next-env.d.ts"] = { "Next.js config", "nextjs" },
     ["next.config.js"] = { "Next.js config", "nextjs" },
     ["nginx"] = { "NGINX", "nginx" },
