@@ -178,6 +178,8 @@ function Presence.get_os_name(uname)
         return "macos"
     elseif uname.sysname:find("Linux") then
         return "linux"
+    elseif uname.sysname:find("FreeBSD") then
+        return "freebsd"
     end
 
     return "unknown"
@@ -392,6 +394,25 @@ function Presence:get_discord_socket_path()
             end
         end
     end
+    elseif self.os.name == "freebsd" then
+        -- Check various temp directory environment variables
+        local env_vars = {
+            "XDG_RUNTIME_DIR",
+            "TEMP",
+            "TMP",
+            "TMPDIR",
+        }
+
+        for i = 1, #env_vars do
+            local var = env_vars[i]
+            local path = os.getenv(var)
+            if path then
+                self.log:debug(string.format("Using runtime path: %s", path))
+                sock_path = path:match("/$") and path..sock_name or path.."/"..sock_name
+                break
+            end
+        end
+    end
 
     return sock_path
 end
@@ -515,6 +536,21 @@ function Presence:get_nvim_socket_paths(on_done)
             [[(Get-ChildItem \\.\pipe\).FullName | findstr 'nvim']],
         }
     elseif self.os.name == "macos" then
+        if vim.fn.executable("netstat") == 0 then
+            self.log:warn("Unable to get nvim socket paths: `netstat` command unavailable")
+            return
+        end
+
+        -- Define macOS BSD netstat output parser
+        function parser.parse(data)
+            return data:match("%s(/.+)")
+        end
+
+        cmd = table.concat({
+            "netstat -u",
+            [[grep --color=never "nvim.*/0"]],
+        }, "|")
+    elseif self.os.name == "freebsd" then
         if vim.fn.executable("netstat") == 0 then
             self.log:warn("Unable to get nvim socket paths: `netstat` command unavailable")
             return
