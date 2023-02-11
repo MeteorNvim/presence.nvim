@@ -393,7 +393,6 @@ function Presence:get_discord_socket_path()
                 break
             end
         end
-    end
     elseif self.os.name == "freebsd" then
         -- Check various temp directory environment variables
         local env_vars = {
