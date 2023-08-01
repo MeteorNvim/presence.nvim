@@ -248,7 +248,7 @@ return {
     sh = { "Shell script", "shell" },
     shrc = { "Shell config", "shell" },
     snap = { "Jest Snapshot", "jest" },
-    sql = { "SQL", "database" },
+    sql = { "SQL", "sql" },
     ss = { "Scheme", "scheme" },
     svelte = { "Svelte", "svelte" },
     svg = { "SVG", "markup" },
