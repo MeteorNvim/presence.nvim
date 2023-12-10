@@ -208,7 +208,7 @@ return {
     markdown = { "Markdown", "markdown" },
     mat = { "MATLAB", "matlab" },
     md = { "Markdown", "markdown" },
-    mdx = { "MDX", "mdx" },
+    mdx = { "MDX", "markdownx" },
     mjs = { "JavaScript", "js" },
     ml = { "OCaml", "ocaml" },
     nim = { "Nim", "nim" },
