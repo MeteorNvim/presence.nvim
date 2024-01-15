@@ -126,6 +126,7 @@ return {
     ["zshrc"] = { "zshrc", "shell" },
     addressbook = { "abook", "abook" },
     asm = { "Assembly ", "assembly" },
+    astro = { "Astro", "astro" },
     ahk = { "Autohotkey", "autohotkey" },
     applescript = { "Applescript", "applescript" },
     bash = { "Bash script", "shell" },
