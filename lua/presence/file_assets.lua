@@ -251,6 +251,7 @@ return {
     snap = { "Jest Snapshot", "jest" },
     sql = { "SQL", "sql" },
     ss = { "Scheme", "scheme" },
+    surql = { "SurrealQL", "sql" },
     svelte = { "Svelte", "svelte" },
     svg = { "SVG", "markup" },
     swift = { "Swift", "swift" },
